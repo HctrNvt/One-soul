@@ -4,13 +4,16 @@ from pygame.locals import *
 import monstre
 if (pygame.init() == False):
     print ("Erreur la librairie Pygame n'a pas pu être initialisée")
-
+# On définie les variables de la fenêtre
 fenetre = pygame.display.set_mode((1024,768))
+pygame.display.set_caption("One soul")
+
+# Met en place l'horloge en jeu
 clock = pygame.time.Clock()
 
 ennemi = monstre.Monstre(100,10,"assets/Perso.png")
 ennemi.dessiner(fenetre,0,0)
-ennemi.deplacer(fenetre,1000,10)
+
 
 # La boucle de jeu
 while True:
@@ -23,6 +26,8 @@ while True:
                 pygame.quit()
                 exit()
             if event.key == pygame.K_q:
+                ennemi.deplacer(fenetre,100,10)
                 print("Touche Q")
-
+    for monstre in monstre.monstres:
+        monstre.dessiner(fenetre,0,0)
     pygame.display.update()
