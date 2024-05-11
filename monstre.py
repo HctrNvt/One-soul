@@ -12,30 +12,33 @@ class Entite():
         # self.vie = pointDeVie
         # self.vitesse = vitesse
         monstres.append(self)
-        self.dessiner(fenetre,coordonnes)
+        self.dessiner(coordonnes)
 
-    def dessiner(self,fenetre,position:tuple):
-        fenetre.blit(self.corps,(position[0],position[1]))
+    def dessiner(self,coordonnees:tuple):
+        self.fenetre.blit(self.corps,(coordonnees[0],coordonnees[1]))
 
 class Monstre(Entite):
-    def __init__(self, pointDeVie: int, vitesse: int, image, coordonnes: tuple, fenetre) -> None:
+    def __init__(self, pointDeVie: int, vitesse: int, image, coordonnes: tuple, fenetre, attaque:int) -> None:
         super().__init__(pointDeVie, vitesse, image, coordonnes, fenetre)
-    def attaque(self,cible):
-        if cible is Joueur:
-            cible.vie -= 10
+        self.attaque = attaque
+    def attaqueJoueur(self,cible:Joueur):
+        cible.vie -= self.attaque
         # à faire
-    def deplacer(self,fenetre,posX,posY):
+    def deplacer(self,fenetre,newPosition:tuple):
         # à faire
         pass
-    def deplacerVers(self,position:tuple):
+    def deplacerVers(self,coordonnees:tuple):
         # à faire
         pass
 
 class Joueur(Entite):
     def __init__(self, pointDeVie: int, vitesse: int, image, coordonnes: tuple, fenetre) -> None:
         super().__init__(pointDeVie, vitesse, image, coordonnes, fenetre)
-    def onMort():
+    def mouvementJoueur(self):
         # à faire
+        pass
+    def onMort():
+        
         pass
     def checkVie():
         if self.vie <= 0:

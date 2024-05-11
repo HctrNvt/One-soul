@@ -2,6 +2,8 @@ import pygame
 from pygame.locals import *
 # Import des class du projet
 import monstre
+import interfaces
+
 if (pygame.init() == False):
     print ("Erreur la librairie Pygame n'a pas pu être initialisée")
 # On définie les variables de la fenêtre
@@ -16,7 +18,7 @@ clock = pygame.time.Clock()
 ennemi = monstre.Entite(100,10,"assets/Perso.png",(0,0),fenetre)
 
 
-
+icone = Icone("assets/bourse.png",(0,0),fenetre)
 
 # La boucle de jeu
 while True:
@@ -30,5 +32,8 @@ while True:
                 exit()
             if event.key == pygame.K_q:
                 print("Touche Q")
-
+        for icone in interfaces.icones:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                xSouris,ySouris = pygame.mouse.get_pos()
+                # Voir quand on clic sur un icone
     pygame.display.update()
