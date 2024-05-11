@@ -12,14 +12,33 @@ class Entite():
         # self.vie = pointDeVie
         # self.vitesse = vitesse
         monstres.append(self)
+        self.dessiner(fenetre,coordonnes)
 
-        self.dessiner(fenetre,coordonnes[0],coordonnes[1])
+    def dessiner(self,fenetre,position:tuple):
+        fenetre.blit(self.corps,(position[0],position[1]))
 
-
-    def dessiner(self,fenetre,positionX:float,positionY:float):
-        fenetre.blit(self.corps,(positionX,positionY))
-    # ça marche pas
-    # Il faut blit chaque instance à la fin de la boucle
+class Monstre(Entite):
+    def __init__(self, pointDeVie: int, vitesse: int, image, coordonnes: tuple, fenetre) -> None:
+        super().__init__(pointDeVie, vitesse, image, coordonnes, fenetre)
+    def attaque(self,cible):
+        if cible is Joueur:
+            cible.vie -= 10
+        # à faire
     def deplacer(self,fenetre,posX,posY):
-        self.rect.move(posX,posY)
-        fenetre.blit(self.corps,self.rect)
+        # à faire
+        pass
+    def deplacerVers(self,position:tuple):
+        # à faire
+        pass
+
+class Joueur(Entite):
+    def __init__(self, pointDeVie: int, vitesse: int, image, coordonnes: tuple, fenetre) -> None:
+        super().__init__(pointDeVie, vitesse, image, coordonnes, fenetre)
+    def onMort():
+        # à faire
+        pass
+    def checkVie():
+        if self.vie <= 0:
+            self.onMort()
+            return False
+        return True

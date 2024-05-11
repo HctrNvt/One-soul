@@ -16,6 +16,8 @@ clock = pygame.time.Clock()
 ennemi = monstre.Entite(100,10,"assets/Perso.png",(0,0),fenetre)
 
 
+
+
 # La boucle de jeu
 while True:
     for event in pygame.event.get():
@@ -27,8 +29,6 @@ while True:
                 pygame.quit()
                 exit()
             if event.key == pygame.K_q:
-                ennemi.deplacer(fenetre,-6,0)
                 print("Touche Q")
-    for personnages in monstre.monstres:
-        personnages.dessiner(fenetre,0,0)
+
     pygame.display.update()
