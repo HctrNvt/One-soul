@@ -15,8 +15,8 @@ fenetre.fill('gray')
 # Met en place l'horloge en jeu
 clock = pygame.time.Clock()
 
-ennemi = monstre.Entite(100,10,"assets/Perso.png",(0,0),fenetre)
-
+ennemi = Entite.Entite(100,10,"assets/Perso.png",(0,0),fenetre)
+joueur = Entite.Joueur(100,10,"assets/joueur.png",(0,0),fenetre)
 
 icone = Icone("assets/bourse.png",(0,0),fenetre)
 
