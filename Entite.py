@@ -38,19 +38,27 @@ class Joueur(Entite):
   
     def move_right(self):
         self.rect.x+= self.velocity
-
     def move_left(self):
         self.rect.x-= self.velocity
-
     def move_up(self):
         self.rect.y -= self.velocity
-
     def move_down(self):
         self.rect.y += self.velocity
-        pass
-   
 
-* def onMort():
+    def checkMouvement(key):
+        if (key == pygame.K_q or key == pygame.K_LEFT):
+            # On bouge à gauche
+            self.move_left()
+        if (key == pygame.K_d or key == pygame.K_RIGHT):
+            # On bouge à droite
+            self.move_right()
+        if (key == pygame.K_z or key == pygame.K_UP):
+            self.move_up()
+        if (key == pygame.K_s or key == pygame.K_DOWN):
+            self.move_down()
+
+        
+    def onMort():
         
         pass
     def checkVie():

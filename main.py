@@ -32,6 +32,8 @@ while True:
                 exit()
             if event.key == pygame.K_q:
                 print("Touche Q")
+        if event.type == pygame.KEYUP:
+            joueur.checkMouvement(event.key)
         for icone in interfaces.icones:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 xSouris,ySouris = pygame.mouse.get_pos()
