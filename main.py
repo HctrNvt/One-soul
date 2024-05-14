@@ -25,13 +25,17 @@ icone = interfaces.Interfaces("assets/perso.png", (50, 100), fenetre)
 # La boucle de jeu
 while True:
     for event in pygame.event.get():
+        # Vérifie si on quitte le jeu
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+        # Vérifie si une touche est pressé
         if event.type == pygame.KEYDOWN:
+            # La touche escape ?
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 exit()
+        # Quand une touche est relevé
         if event.type == pygame.KEYUP:
             joueur.checkMouvement(event.key)
     pygame.display.update()
