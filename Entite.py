@@ -35,10 +35,22 @@ class Monstre(Entite):
 class Joueur(Entite):
     def __init__(self, pointDeVie: int, vitesse: int, image, coordonnes: tuple, fenetre) -> None:
         super().__init__(pointDeVie, vitesse, image, coordonnes, fenetre)
-    def mouvementJoueur(self):
-        # à faire
+  
+    def move_right(self):
+        self.rect.x+= self.velocity
+
+    def move_left(self):
+        self.rect.x-= self.velocity
+
+    def move_up(self):
+        self.rect.y -= self.velocity
+
+    def move_down(self):
+        self.rect.y += self.velocity
         pass
-    def onMort():
+   
+
+* def onMort():
         
         pass
     def checkVie():
