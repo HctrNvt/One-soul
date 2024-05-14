@@ -4,7 +4,6 @@ from pygame.locals import *  # noqa: F403
 # Import des class du projet
 import interfaces
 import Joueur
-import Monstre
 
 if pygame.init() is False:
     print("Erreur la librairie Pygame n'a pas pu être initialisée")
@@ -14,10 +13,7 @@ fenetreY = 768
 fenetre = pygame.display.set_mode((fenetreX, fenetreY))
 pygame.display.set_caption("One soul")
 fenetre.fill("gray")
-# Met en place l'horloge en jeu
-clock = pygame.time.Clock()
 
-ennemi = Monstre.Monstre(100, 10, "assets/joueur.png", (0, 0), fenetre)
 joueur = Joueur.Joueur(100, 10, "assets/perso.png", (0, 0), fenetre)
 
 icone = interfaces.Interfaces("assets/perso.png", (50, 100), fenetre)

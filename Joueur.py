@@ -1,25 +1,31 @@
 import pygame
 
-import Entite
 
-
-class Joueur(Entite):
+class Joueur:
     def __init__(
-        self, pointDeVie: int, vitesse: int, image, coordonnes: tuple, fenetre
-    ) -> None:
-        super().__init__(pointDeVie, vitesse, image, coordonnes, fenetre)
+        self, pointDeVie: int, velocity: int, image, coordonnes: tuple, fenetre
+    ):
+        # Les attributs de la classs Entite
+        self.fenetre = fenetre
+        self.coordonnes = coordonnes
+        self.corps = pygame.image.load(image).convert()
+        self.rect = self.corps.get_rect()
+        self.rect.topleft = (50, 50)
+        # Infos joueur
+        self.vie = pointDeVie
+        self.velocity = velocity
 
     def move_right(self):
-        self.rect.x += super().vitesse
+        self.rect.x += velocity
 
     def move_left(self):
-        self.rect.x -= super().vitesse
+        self.rect.x -= velocity
 
     def move_up(self):
-        self.rect.y -= super().vitesse
+        self.rect.y -= velocity
 
     def move_down(self):
-        self.rect.y += super().vitesse
+        self.rect.y += velocity
 
     def checkMouvement(self, key):
         if key == pygame.K_q or key == pygame.K_LEFT:
