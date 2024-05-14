@@ -1,5 +1,5 @@
-icones = []
-class Icone():
+interfaces = []
+class Interfaces():
     def __init__(self, image, coordonnes: tuple, fenetre) -> None:
         self.cordonnes = coordonnes
         self.image = pygame.image.load(image).convert_alpha()
