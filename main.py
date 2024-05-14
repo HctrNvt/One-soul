@@ -2,8 +2,9 @@ import pygame
 from pygame.locals import *  # noqa: F403
 
 # Import des class du projet
-import Entite
 import interfaces
+import Joueur
+import Monstre
 
 if pygame.init() is False:
     print("Erreur la librairie Pygame n'a pas pu être initialisée")
@@ -16,10 +17,10 @@ fenetre.fill("gray")
 # Met en place l'horloge en jeu
 clock = pygame.time.Clock()
 
-ennemi = Entite.Entite(100, 10, "assets/Perso.png", (0, 0), fenetre)
-joueur = Entite.Joueur(100, 10, "assets/Perso.png", (0, 0), fenetre)
+ennemi = Monstre.Monstre(100, 10, "assets/joueur.png", (0, 0), fenetre)
+joueur = Joueur.Joueur(100, 10, "assets/perso.png", (0, 0), fenetre)
 
-icone = interfaces.Interfaces("assets/Perso.png", (50, 100), fenetre)
+icone = interfaces.Interfaces("assets/perso.png", (50, 100), fenetre)
 
 # La boucle de jeu
 while True:
