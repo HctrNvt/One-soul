@@ -1,3 +1,6 @@
+import pygame
+from pygame.locals import *  # noqa: F403
+
 interfaces = []
 
 

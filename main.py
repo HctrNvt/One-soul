@@ -1,5 +1,5 @@
 import pygame
-from pygame.locals import *
+from pygame.locals import *  # noqa: F403
 
 # Import des class du projet
 import Entite
@@ -17,9 +17,9 @@ fenetre.fill("gray")
 clock = pygame.time.Clock()
 
 ennemi = Entite.Entite(100, 10, "assets/Perso.png", (0, 0), fenetre)
-joueur = Entite.Joueur(100, 10, "assets/joueur.png", (0, 0), fenetre)
+joueur = Entite.Joueur(100, 10, "assets/Perso.png", (0, 0), fenetre)
 
-icone = interfaces.Interfaces("assets/bourse.png", (0, 0), fenetre)
+icone = interfaces.Interfaces("assets/Perso.png", (50, 100), fenetre)
 
 # La boucle de jeu
 while True:
@@ -35,8 +35,8 @@ while True:
                 print("Touche Q")
         if event.type == pygame.KEYUP:
             joueur.checkMouvement(event.key)
-        for icone in interfaces.icones:
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                xSouris, ySouris = pygame.mouse.get_pos()
-                # Voir quand on clic sur un icone
+    #         for icone in interfaces.icones:
+    #             if event.type == pygame.MOUSEBUTTONDOWN:
+    #                 xSouris, ySouris = pygame.mouse.get_pos()
+    #                 # Voir quand on clic sur un icone
     pygame.display.update()

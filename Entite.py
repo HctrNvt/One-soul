@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *  # noqa: F403
 
 entites = []
 
@@ -22,70 +23,3 @@ class Entite:
 
     def dessiner(self, coordonnees: tuple):
         self.fenetre.blit(self.corps, (coordonnees[0], coordonnees[1]))
-
-
-class Monstre(Entite):
-    def __init__(
-        self,
-        pointDeVie: int,
-        vitesse: int,
-        image,
-        coordonnes: tuple,
-        fenetre,
-        attaque: int,
-    ):
-        super().__init__(pointDeVie, vitesse, image, coordonnes, fenetre)
-        self.attaque = attaque
-
-    # def attaqueJoueur(self, cible: Joueur):
-    #    cible.vie -= self.attaque
-    #    # à faire
-    #    pass
-
-    def deplacer(self, fenetre, newPosition: tuple):
-        # à faire
-        pass
-
-    def deplacerVers(self, coordonnees: tuple):
-        # à faire
-        pass
-
-
-class Joueur(Entite):
-    def __init__(
-        self, pointDeVie: int, vitesse: int, image, coordonnes: tuple, fenetre
-    ) -> None:
-        super().__init__(pointDeVie, vitesse, image, coordonnes, fenetre)
-
-    def move_right(self):
-        self.rect.x += self.velocity
-
-    def move_left(self):
-        self.rect.x -= self.velocity
-
-    def move_up(self):
-        self.rect.y -= self.velocity
-
-    def move_down(self):
-        self.rect.y += self.velocity
-
-    def checkMouvement(key):
-        if key == pygame.K_q or key == pygame.K_LEFT:
-            # On bouge à gauche
-            self.move_left()
-        if key == pygame.K_d or key == pygame.K_RIGHT:
-            # On bouge à droite
-            self.move_right()
-        if key == pygame.K_z or key == pygame.K_UP:
-            self.move_up()
-        if key == pygame.K_s or key == pygame.K_DOWN:
-            self.move_down()
-
-    def onMort():
-        pass
-
-    def checkVie():
-        if self.vie <= 0:
-            self.onMort()
-            return False
-        return True
