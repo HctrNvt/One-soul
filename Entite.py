@@ -1,5 +1,5 @@
 import pygame
-monstres = []
+entites = []
 class Entite():
     def __init__(self,pointDeVie:int,vitesse:int,image,coordonnes:tuple,fenetre) -> None:
         # Les attributs de la classs Entite
@@ -8,10 +8,11 @@ class Entite():
         self.corps = pygame.image.load(image).convert()
         self.rect = self.corps.get_rect()
         self.rect.topleft = (50,50)
-        # pas encore utile
-        # self.vie = pointDeVie
-        # self.vitesse = vitesse
-        monstres.append(self)
+        # Infos joueur
+        self.vie = pointDeVie
+        self.vitesse = vitesse
+        # On ajoute a la grande liste de toute les entités
+        entites.append(self)
         self.dessiner(coordonnes)
 
     def dessiner(self,coordonnees:tuple):
